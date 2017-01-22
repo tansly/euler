@@ -1,0 +1,36 @@
+void sorti(int *array, int len)
+{
+    int i, j;
+    int temp;
+    for (i = 1; i < len; i++) {
+        temp = array[i];
+        for (j = i - 1; j >= 0 && array[j] > temp; j--) {
+            array[j + 1] = array[j];
+        }
+        array[j + 1] = temp;
+    }
+}
+
+void sortd(int *array, int len)
+{
+    int i, j;
+    int temp;
+    for (i = 1; i < len; i++) {
+        temp = array[i];
+        for (j = i - 1; j >= 0 && array[j] < temp; j--) {
+            array[j + 1] = array[j];
+        }
+        array[j + 1] = temp;
+    }
+}
+
+void inserti(int rad, int n, int *array1, int *array2, int len)
+{
+    int i;
+    for (i = len - 1; i >= 0 && array1[i] > rad; i--) {
+        array1[i + 1] = array1[i];
+        array2[i + 1] = array2[i];
+    }
+    array1[i + 1] = rad;
+    array2[i + 1] = n;
+}

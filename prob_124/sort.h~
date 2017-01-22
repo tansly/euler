@@ -1,0 +1,3 @@
+void sorti(int *array, int len);
+void sortd(int *array, int len);
+void inserti(int rad, int n, int *array1, int *array2, int len);
