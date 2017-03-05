@@ -1,3 +1,8 @@
 libs/
 include/
 incomplete/
+
+*.o
+*.out
+*.swp
+*.hi
