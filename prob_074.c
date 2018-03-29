@@ -1,21 +1,3 @@
-/*
- * =====================================================================================
- *
- *       Filename:  prob_074.c
- *
- *    Description:  
- *
- *        Version:  1.0
- *        Created:  02/02/2016 09:45:12 PM
- *       Revision:  none
- *       Compiler:  gcc
- *
- *         Author:  YOUR NAME (), 
- *   Organization:  
- *
- * =====================================================================================
- */
-
 #include <stdio.h>
 
 int factorial(int n)

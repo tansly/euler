@@ -1,21 +1,3 @@
-/*
- * =====================================================================================
- *
- *       Filename:  prob_092.c
- *
- *    Description:  
- *
- *        Version:  1.0
- *        Created:  02/02/2016 09:27:38 PM
- *       Revision:  none
- *       Compiler:  gcc
- *
- *         Author:  YOUR NAME (), 
- *   Organization:  
- *
- * =====================================================================================
- */
-
 #include <stdio.h>
 
 int digit_square(int n)
