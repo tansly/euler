@@ -1,28 +1,118 @@
 #include <iostream>
 
-long can_win_by_taking(long total_pebbles, long max_allowed)
-{
-    if (total_pebbles > 0 && total_pebbles <= max_allowed) {
-        return total_pebbles;
-    }
+constexpr unsigned long fibonacci_numbers[] = {
+    37889062373143906,
+    23416728348467685,
+    14472334024676221,
+    8944394323791464,
+    5527939700884757,
+    3416454622906707,
+    2111485077978050,
+    1304969544928657,
+    806515533049393,
+    498454011879264,
+    308061521170129,
+    190392490709135,
+    117669030460994,
+    72723460248141,
+    44945570212853,
+    27777890035288,
+    17167680177565,
+    10610209857723,
+    6557470319842,
+    4052739537881,
+    2504730781961,
+    1548008755920,
+    956722026041,
+    591286729879,
+    365435296162,
+    225851433717,
+    139583862445,
+    86267571272,
+    53316291173,
+    32951280099,
+    20365011074,
+    12586269025,
+    7778742049,
+    4807526976,
+    2971215073,
+    1836311903,
+    1134903170,
+    701408733,
+    433494437,
+    267914296,
+    165580141,
+    102334155,
+    63245986,
+    39088169,
+    24157817,
+    14930352,
+    9227465,
+    5702887,
+    3524578,
+    2178309,
+    1346269,
+    832040,
+    514229,
+    317811,
+    196418,
+    121393,
+    75025,
+    46368,
+    28657,
+    17711,
+    10946,
+    6765,
+    4181,
+    2584,
+    1597,
+    987,
+    610,
+    377,
+    233,
+    144,
+    89,
+    55,
+    34,
+    21,
+    13,
+    8,
+    5,
+    3,
+    2,
+    1,
+    1,
+    0,
+};
 
-    for (long i = 1; i <= max_allowed; ++i) {
-        if (!can_win_by_taking(total_pebbles - i, i * 2)) {
-            return i;
+long nearest_fibonacci(long n)
+{
+    for (auto fib : fibonacci_numbers) {
+        if (fib <= n) {
+            return fib;
         }
     }
-
-    return 0;
+    /* unreachable */
+    return -1;
 }
 
+long smallest_fibonacci_in_zeckendorf_representation(long n)
+{
+    long fib;
+    do {
+        fib = nearest_fibonacci(n);
+        n -= fib;
+    } while (n > 0);
+    return fib;
+}
 
 int main(void)
 {
     long sum = 0;
-    for (long i = 1; i <= 23416728348467685; ++i) {
-        auto take = can_win_by_taking(i, i - 1);
+    for (long n = 1; n <= 23416728348467685; ++n) {
+        auto take = smallest_fibonacci_in_zeckendorf_representation(n);
         if (take == 0) {
-            take = i;
+            take = n;
         }
         sum += take;
     }
